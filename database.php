@@ -4,7 +4,7 @@ $host = '127.0.0.1';
 $db   = 'forum';
 $user = 'root';
 $pass = '';
-$charset = 'utf8_slovenian_ci';
+$charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
