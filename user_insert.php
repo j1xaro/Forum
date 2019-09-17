@@ -1,5 +1,5 @@
 <?php
-include_once './database.php';
+require_once './database.php';
 
 $ime = $_POST['ime'];
 $priimek = $_POST['priimek'];
@@ -19,7 +19,7 @@ if (!empty($ime) && !empty($priimek)
     
     $query = "INSERT INTO uporabniki (ime,priimek,naslov,email,"
             . "pass,birthday) "
-            . "VALUES (?,?,?,?,?,?,?,?)";
+            . "VALUES (?,?,?,?,?,?)";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$ime,$priimek,$naslov,$email,$pass,$birthday]);
     

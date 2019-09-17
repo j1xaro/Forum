@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once './database.php';
+require_once './database.php';
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 //preverim, če sem prejel podatke
