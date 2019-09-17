@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 require_once './database.php';
 $kdo = $_SESSION['user_id'];      
 $vrsta = $_SESSION['admin'];
@@ -7,7 +7,7 @@ $query = "SELECT * FROM uporabniki WHERE id=?";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$kdo]);
 $uporabnik = $stmt->fetch();
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -40,21 +40,24 @@ $uporabnik = $stmt->fetch();
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Domov</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">PROrum</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
+        Meni
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Forum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+            <a class="nav-link js-scroll-trigger" href="#projects">Pravila</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#signup">Prijava</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="odjava.php">Registracija</a>
           </li>
         </ul>
       </div>
@@ -65,14 +68,14 @@ $uporabnik = $stmt->fetch();
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">
+        <h2 class="mx-auto my-0 text-uppercase">
           <?php
-          echo "Pozdravljeni" . $uporabnik['ime'] . "!";
+          echo "Pozdravljeni na PROrumu!";
           
           ?>
-        </h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-        <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+        </h2>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">Če želite objavljati in dostopati do določenih tem se prijavite.</h2>
+        <a href="login.php" class="btn btn-primary js-scroll-trigger">Prijava</a>
       </div>
     </div>
   </header>
