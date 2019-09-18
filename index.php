@@ -74,12 +74,12 @@ $uporabnik = $stmt->fetch();
           
           ?>
         </h2>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">Če želite objavljati in dostopati do določenih tem se prijavite.</h2>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">Če želite objavljati in dostopati do določenih tem na forumu, se prijavite.</h2>
         <a href="login.php" class="btn btn-primary js-scroll-trigger">Prijava</a>
       </div>
     </div>
   </header>
-
+<?php /*
   <!-- About Section -->
   <section id="about" class="about-section text-center">
     <div class="container">
@@ -150,6 +150,8 @@ $uporabnik = $stmt->fetch();
     </div>
   </section>
 
+  
+
   <!-- Signup Section -->
   <section id="signup" class="signup-section">
     <div class="container">
@@ -167,12 +169,12 @@ $uporabnik = $stmt->fetch();
         </div>
       </div>
     </div>
-  </section>
+  </section> */ ?>  
 
   <!-- Contact Section -->
   <section class="contact-section bg-black">
     <div class="container">
-
+<?php /*
       <div class="row">
 
         <div class="col-md-4 mb-3 mb-md-0">
@@ -210,15 +212,15 @@ $uporabnik = $stmt->fetch();
           </div>
         </div>
       </div>
-
+*/ ?>
       <div class="social d-flex justify-content-center">
-        <a href="#" class="mx-2">
+        <a href="https://twitter.com/jkxycs" target="_blank" class="mx-2">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="#" class="mx-2">
+       <?php /* <a href="#" class="mx-2">
           <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="mx-2">
+        </a> */ ?>
+        <a href="https://github.com/j1xaro" target="_blank" class="mx-2">
           <i class="fab fa-github"></i>
         </a>
       </div>

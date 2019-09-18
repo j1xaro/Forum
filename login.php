@@ -70,7 +70,7 @@
     <input type="submit" class="" value="Prijava" />
 </form>
 </h2>
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Če še niste registrirani, se lahko s pritiskom na spodenj gumb.</h2>+
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Če še niste registrirani, se lahko s pritiskom na spodenj gumb.</h2>
         <a href="register.php" class="btn btn-primary js-scroll-trigger">Registracija</a>
       </div>
     </div>
