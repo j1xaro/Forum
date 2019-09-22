@@ -48,16 +48,16 @@ $uporabnik = $stmt->fetch();
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects">Forum</a>
+            <a class="nav-link js-scroll-trigger" href="forum.php">Forum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects">Pravila</a>
+            <a class="nav-link js-scroll-trigger" href="pravila.php">Pravila</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">Prijava</a>
+            <a class="nav-link js-scroll-trigger" href="login.php">Prijava</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="odjava.php">Registracija</a>
+            <a class="nav-link js-scroll-trigger" href="register.php">Registracija</a>
           </li>
         </ul>
       </div>
