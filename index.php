@@ -63,7 +63,7 @@ if (isset($_SESSION['id'])){
             <a class="nav-link js-scroll-trigger" href="pravila.php">Pravila</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="nastavitve.php">Nastavitve</a>
+            <a class="nav-link js-scroll-trigger" href="admin.php">Admin</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="odjava.php">Odjava</a>
