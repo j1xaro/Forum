@@ -14,7 +14,7 @@ if (!empty($email) && !empty($pass)) {
     if ($stmt->rowCount() == 1) {
         $user = $stmt->fetch();
         if (password_verify($pass, $user['pass'])) {
-            $_SESSION['user_id'] = $user['id'];        
+            $_SESSION['id'] = $user['id'];        
             $_SESSION['admin'] = $user['vrsta_uporabnika'];        
             header("Location: index.php");
             die();

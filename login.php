@@ -1,5 +1,10 @@
 <?php
-//include_once './header.php';
+session_start();
+    require_once "database.php";
+if (isset($_SESSION['id'])){
+  header("Location: index.php");
+}
+else
 ?>
 
 <!DOCTYPE html>
