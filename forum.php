@@ -87,29 +87,6 @@ while($row1 = $stmt1->fetch())
       </div>
     </div>
   </header>
-<!-- About Section -->
-<section id="about" class="about-section text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Teme</h2>
-          <pre class="text-white-50">
-          <?php 
-          echo "<table>";
-          echo "<tr><td>". "<strong>Tema</strong>" . "</td><td>" . "<strong>Opis</strong>". "</td></tr>";
-while($row1 = $stmt1->fetch())
-{
-    
-  echo "<tr><td>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
-}
-        echo "</table>"; 
-        ?>
-        </pre>
-        </div>
-      </div>
-      <!--<img src="img/ipad.png" class="img-fluid" alt=""> -->
-    </div>
-  </section>
 
   
   <!-- Contact Section -->
@@ -207,18 +184,28 @@ while($row1 = $stmt1->fetch())
   </div>
 </nav>
 
-<!-- About Section -->
-<section id="about" class="about-section text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <h2 class="text-white mb-4">Teme</h2>
-        <pre class="text-white-50"> </pre>
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h2 class="mx-auto my-0 text-uppercase">
+        <strong>Teme</strong>
+        </h2>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">
+        <?php 
+          echo "<table>";
+          echo "<tr><td class='pr-3'>". "<strong>Tema</strong>" . "</td><td class='pr-3'>" . "<strong>Opis</strong>". "</td></tr>";
+while($row1 = $stmt1->fetch())
+{
+    
+  echo "<tr><td class='pr-3'>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
+}
+        echo "</table>"; 
+        ?>
+        </h2>
+        
       </div>
     </div>
-    <img src="img/ipad.png" class="img-fluid" alt="">
-  </div>
-</section>
+  </header>
 
 
 <!-- Contact Section -->
@@ -316,18 +303,28 @@ else { ?>
     </div>
   </nav>
  
-<!-- About Section -->
-<section id="about" class="about-section text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Teme</h2>
-          <pre class="text-white-50"> </pre>
-        </div>
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h2 class="mx-auto my-0 text-uppercase">
+        <strong>Teme</strong>
+        </h2>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">
+        <?php 
+          echo "<table>";
+          echo "<tr><td class='pr-3'>". "<strong>Tema</strong>" . "</td><td class='pr-3'>" . "<strong>Opis</strong>". "</td></tr>";
+while($row1 = $stmt1->fetch())
+{
+    
+  echo "<tr><td class='pr-3'>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
+}
+        echo "</table>"; 
+        ?>
+        </h2>
+        
       </div>
-      <img src="img/ipad.png" class="img-fluid" alt="">
     </div>
-  </section>
+  </header>
 
   
   <!-- Contact Section -->
