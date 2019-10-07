@@ -4,6 +4,9 @@
 <?php
 session_start();
     require_once "database.php";
+    $query1 = "SELECT * FROM teme";
+    $stmt1 = $pdo->prepare($query1);
+    $stmt1->execute();
 if (isset($_SESSION['id'])){
     $query = "SELECT * FROM uporabniki where id = ".$_SESSION['id'];
     $stmt = $pdo->prepare($query);
@@ -49,7 +52,7 @@ if (isset($_SESSION['id'])){
             <a class="nav-link js-scroll-trigger" href="index.php">Domov</a>
           </li>
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="forum.php">Forum</a>
+            <a class="nav-link js-scroll-trigger" href="pravila.php">Pravila</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="admin.php">Admin</a>
@@ -67,8 +70,18 @@ if (isset($_SESSION['id'])){
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Pravila</h2>
-          <pre class="text-white-50"> </pre>
+          <h2 class="text-white mb-4">Teme</h2>
+          <p style="background-color:Red;">
+          <?php 
+          echo "<table>";
+while($row1 = $stmt1->fetch())
+{
+    
+  echo "<tr><td>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
+}
+        echo "</table>"; 
+        ?>
+        </p>
         </div>
       </div>
       <img src="img/ipad.png" class="img-fluid" alt="">
@@ -158,7 +171,7 @@ if (isset($_SESSION['id'])){
           <a class="nav-link js-scroll-trigger" href="index.php">Domov</a>
         </li>
       <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="forum.php">Forum</a>
+          <a class="nav-link js-scroll-trigger" href="pravila.php">Pravila</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="nastavitve.php">Nastavitve</a>
@@ -176,7 +189,7 @@ if (isset($_SESSION['id'])){
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2 class="text-white mb-4">Pravila</h2>
+        <h2 class="text-white mb-4">Teme</h2>
         <pre class="text-white-50"> </pre>
       </div>
     </div>
@@ -285,7 +298,7 @@ else { ?>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Pravila</h2>
+          <h2 class="text-white mb-4">Teme</h2>
           <pre class="text-white-50"> </pre>
         </div>
       </div>
