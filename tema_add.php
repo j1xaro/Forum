@@ -61,9 +61,12 @@ if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <a href="tema_add.php" class="btn btn-primary js-scroll-trigger">Dodaj temo</a><br><br>
-        <a href="podtema_add.php" class="btn btn-primary js-scroll-trigger">Dodaj podtemo</a><br><br>
-        <a href="uporabniki.php" class="btn btn-primary js-scroll-trigger">Vsi uporabniki</a>
+        <h1>Dodaj temo</h1>
+<form action="tema_insert.php" method="post">
+    <input type="text" class="form-control mb-4" name="tema" placeholder="Vnesi temo" required="required" />
+    <input type="text" class="form-control mb-4" name="opis" placeholder="Vnesi opis teme" required="required" />
+    <input type="submit" name="submit" value="Vnesi" />
+</form>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
         </h2>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+require_once './database.php';
 session_start();
 if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
         ?>
@@ -61,9 +62,22 @@ if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <a href="tema_add.php" class="btn btn-primary js-scroll-trigger">Dodaj temo</a><br><br>
-        <a href="podtema_add.php" class="btn btn-primary js-scroll-trigger">Dodaj podtemo</a><br><br>
-        <a href="uporabniki.php" class="btn btn-primary js-scroll-trigger">Vsi uporabniki</a>
+        <h1>Dodaj podtemo</h1>
+<form action="podtema_insert.php" method="post">
+<label><b>Tema pod katero spada podtema:</b></label>
+<?php 
+        $query = "SELECT * FROM teme";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        echo "<select name='tema'>";
+        while($row = $stmt->fetch()) {
+        echo "<option value='" . $row['id'] ."'>" . $row['naslov_teme'] ."</option>";
+    }
+    echo "</select>"; ?>
+    <input type="text" class="form-control mb-4" name="podtema" placeholder="Vnesi podtemo" required="required" />
+    <input type="text" class="form-control mb-4" name="opis" placeholder="Vnesi opis podteme" required="required" />
+    <input type="submit" name="submit" value="Vnesi" />
+</form>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
         </h2>
