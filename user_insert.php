@@ -17,6 +17,17 @@ if (!empty($ime) && !empty($priimek)
     //$pass = sha1($pass1.$salt);
     $pass = password_hash($pass1, PASSWORD_DEFAULT);
     
+    $query1 = "SELECT email FROM uporabniki WHERE email=?";
+    $stmt1 = $pdo->prepare($query1);
+    $stmt1->execute([$email]);
+
+if ($stmt1->rowCount()>0)
+{ 
+    
+    header("Location:register.php?x=1");
+} 
+  
+ else { 
     $query = "INSERT INTO uporabniki (ime,priimek,naslov,email,"
             . "pass,birthday) "
             . "VALUES (?,?,?,?,?,?)";
@@ -24,6 +35,7 @@ if (!empty($ime) && !empty($priimek)
     $stmt->execute([$ime,$priimek,$naslov,$email,$pass,$birthday]);
     
     header("Location: login.php");
+ }
 }
 else {
     header("Location: registration.php");
