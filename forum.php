@@ -70,10 +70,10 @@ if (isset($_SESSION['id'])){
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        
+        <a href="objava_add.php" class="btn btn-primary js-scroll-trigger">Dodaj objavo</a>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
-        <a href="objava_add.php" class="btn btn-primary js-scroll-trigger">Dodaj objavo</a>
+        
         <?php 
           echo "<table border='1'>";
           
