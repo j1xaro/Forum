@@ -15,7 +15,7 @@ if (isset($_SESSION['id']))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Domov</title>
+  <title>Objava</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

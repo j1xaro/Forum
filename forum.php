@@ -22,7 +22,7 @@ if (isset($_SESSION['id'])){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Domov</title>
+  <title>Forum</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -163,7 +163,7 @@ while($row1 = $stmt1->fetch())
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Domov</title>
+<title>Forum</title>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -211,18 +211,39 @@ while($row1 = $stmt1->fetch())
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <strong>Teme</strong>
+
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
+        <a href="objava_add.php" class="btn btn-primary js-scroll-trigger">Dodaj objavo</a>
         <?php 
-          echo "<table>";
-          echo "<tr><td class='pr-3'>". "<strong>Tema</strong>" . "</td><td class='pr-3'>" . "<strong>Opis</strong>". "</td></tr>";
-while($row1 = $stmt1->fetch())
-{
-    
-  echo "<tr><td class='pr-3'>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
-}
-        echo "</table>"; 
+          echo "<table border='1'>";
+          
+          while($row1 = $stmt1->fetch())
+          {
+            echo "<tr><td class='pr-3'>". "<strong><h1>Tema</h1></strong>" . "</td><td class='pr-3'>" . "<strong><h1>&nbspOpis</h1></strong>". "</td></tr>"; 
+            echo "<tr><td class='pr-3'><h3><b>" .  $row1['naslov_teme'] . "</b></h3></td><td><h3><b> " . $row1['opis']. "</b></h3></td></tr>";
+            $query2 = "SELECT * FROM podteme where id_tema=".$row1['id'];
+              $stmt2 = $pdo->prepare($query2);
+              $stmt2->execute();
+            while($row2 = $stmt2->fetch())
+            {
+              echo "<tr><td class='pr-3'>". "<strong><h2>Podtema</h2></strong>" . "</td><td class='pr-3'>" . "<strong><h2>&nbspOpis</h2></strong>". "</td></tr>";
+              echo "<tr><td class='pr-3'><h2>" .  $row2['naslov_podteme'] . "</h2></td><td><h2> " . $row2['opis']. "</h2></td></tr>";
+              $query3 = "SELECT * FROM objave where id_podteme=".$row2['id'];
+              $stmt3 = $pdo->prepare($query3);
+              $stmt3->execute();
+            while($row3 = $stmt3->fetch())
+            {
+              $query4 = "SELECT * FROM uporabniki where id=". $row3['id_uporabnik'];
+              $stmt4 = $pdo->prepare($query4);
+              $stmt4->execute();
+              $row4 = $stmt4->fetch();
+              $objava = $row3['id'];
+              echo "<tr><td class='pr-3'><label>Naslov:</label><h4><a href='objava.php?obj=".$objava."'> ".  $row3['naslov_objave'] . "</h4></a></td><td><label>Objavljeno:</label><h4> " . $row3['datum_objave']. "</h4></td><td><label>Objavil:</label><h4>". $row4['email']. "</h4></td></tr>";
+            }
+            }
+          }
+                  echo "</table>";  
         ?>
         </h2>
         
@@ -282,7 +303,7 @@ else { ?>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Domov</title>
+  <title>Forum</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -330,18 +351,39 @@ else { ?>
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <strong>Teme</strong>
+        Za objavljanje se prijavite
+        <a href="login.php" class="btn btn-primary js-scroll-trigger">Prijava</a>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
         <?php 
-          echo "<table>";
-          echo "<tr><td class='pr-3'>". "<strong>Tema</strong>" . "</td><td class='pr-3'>" . "<strong>Opis</strong>". "</td></tr>";
-while($row1 = $stmt1->fetch())
-{
-    
-  echo "<tr><td class='pr-3'>" .  $row1['naslov_teme'] . "</td><td> " . $row1['opis']. "</td></tr>";
-}
-        echo "</table>"; 
+          echo "<table border='1'>";
+          
+          while($row1 = $stmt1->fetch())
+          {
+            echo "<tr><td class='pr-3'>". "<strong><h1>Tema</h1></strong>" . "</td><td class='pr-3'>" . "<strong><h1>&nbspOpis</h1></strong>". "</td></tr>"; 
+            echo "<tr><td class='pr-3'><h3><b>" .  $row1['naslov_teme'] . "</b></h3></td><td><h3><b> " . $row1['opis']. "</b></h3></td></tr>";
+            $query2 = "SELECT * FROM podteme where id_tema=".$row1['id'];
+              $stmt2 = $pdo->prepare($query2);
+              $stmt2->execute();
+            while($row2 = $stmt2->fetch())
+            {
+              echo "<tr><td class='pr-3'>". "<strong><h2>Podtema</h2></strong>" . "</td><td class='pr-3'>" . "<strong><h2>&nbspOpis</h2></strong>". "</td></tr>";
+              echo "<tr><td class='pr-3'><h2>" .  $row2['naslov_podteme'] . "</h2></td><td><h2> " . $row2['opis']. "</h2></td></tr>";
+              $query3 = "SELECT * FROM objave where id_podteme=".$row2['id'];
+              $stmt3 = $pdo->prepare($query3);
+              $stmt3->execute();
+            while($row3 = $stmt3->fetch())
+            {
+              $query4 = "SELECT * FROM uporabniki where id=". $row3['id_uporabnik'];
+              $stmt4 = $pdo->prepare($query4);
+              $stmt4->execute();
+              $row4 = $stmt4->fetch();
+              $objava = $row3['id'];
+              echo "<tr><td class='pr-3'><label>Naslov:</label><h4><a href='objava.php?obj=".$objava."'> ".  $row3['naslov_objave'] . "</h4></a></td><td><label>Objavljeno:</label><h4> " . $row3['datum_objave']. "</h4></td><td><label>Objavil:</label><h4>". $row4['email']. "</h4></td></tr>";
+            }
+            }
+          }
+                  echo "</table>"; 
         ?>
         </h2>
         
