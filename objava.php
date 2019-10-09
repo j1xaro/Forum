@@ -85,6 +85,9 @@ if (isset($_SESSION['id'])){
         
         <?php 
           echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
+        
+        echo '<a href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani?\');")><strong>Delete</strong></a><br>';
+        echo "<a href='objava_edit.php?obj=".$objava."'><strong>Edit</strong></a>";
         ?>
         
         </h2>
@@ -199,7 +202,9 @@ if (isset($_SESSION['id'])){
       
       <?php 
         echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
-      ?>
+        echo '<a href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani?\');")><strong>Delete</strong></a><br>';
+        echo "<a href='objava_edit.php?obj=".$objava."'><strong>Edit</strong></a>";
+     ?>
       
       </h2>
       
