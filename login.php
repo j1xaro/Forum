@@ -19,8 +19,14 @@ else
 
   <title>Prijava</title>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -63,23 +69,49 @@ else
 
   <!-- Header -->
   <header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h2 class="mx-auto my-0 text-uppercase">
-          <?php
-          echo "Prijava";
-          
-          ?>
-        </h2>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">
-            <form action="login_check.php" method="post">
+    <br><br><br><br><br><br>
+        <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><strong>Prijava</strong></h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email naslov" required autofocus>
+                <label for="inputEmail">Email naslov</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Geslo" required>
+                <label for="inputPassword">Geslo</label>
+              </div>
+
+              <div class="custom-control text-center  mb-3">
+
+              <a href="register.php">Nov uporabnik? Registrirajte se.</a>
+                
+                
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Prijava</button>
+              <hr class="my-4">
+              <a href="googletest.php"><button class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button></a>
+              <br>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+           <!-- <form action="login_check.php" method="post">
     <input type="email" name="email" class="" placeholder="Vnesite e-pošto" required="required" />
     <input type="password" name="pass" class="" placeholder="Vnesite geslo" required="required" />
     <input type="submit" class="" value="Prijava" />
-</form>
+</form>-->
 </h2>
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Če še niste registrirani, se lahko s pritiskom na spodenj gumb.</h2>
-        <a href="register.php" class="btn btn-primary js-scroll-trigger">Registracija</a>
+<!--<h2 class="text-white-50 mx-auto mt-2 mb-5">Če še niste registrirani, se lahko s pritiskom na spodenj gumb.</h2>
+        <a href="register.php" class="btn btn-primary js-scroll-trigger">Registracija</a> -->
       </div>
     </div>
   </header>
