@@ -76,7 +76,7 @@ else
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center"><strong>Prijava</strong></h5>
-            <form class="form-signin">
+            <form class="form-signin" action="login_check.php" method="post">
               <div class="form-label-group">
                 <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email naslov" required autofocus>
                 <label for="inputEmail">Email naslov</label>
@@ -95,7 +95,7 @@ else
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Prijava</button>
               <hr class="my-4">
-              <a href="googletest.php"><button class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button></a>
+              <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
               <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
             </form>
