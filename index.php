@@ -81,7 +81,7 @@ if (isset($_SESSION['id'])){
         Pozdravljen ADMIN!
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-        <a href="admin.php" class="btn btn-primary js-scroll-trigger">ADMIN</a>
+        <a href="admin.php" class="btn btn-dark js-scroll-trigger">ADMIN</a>
       </div>
     </div>
   </header>
@@ -318,7 +318,7 @@ if (isset($_SESSION['id'])){
         Pozdravljeni <?php echo $row['ime'];?> na PROrumu!
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Nadaljujte vaš obisk na forum.</h2>
-        <a href="forum.php" class="btn btn-primary js-scroll-trigger">Forum</a>
+        <a href="forum.php" class="btn btn-dark js-scroll-trigger">Forum</a>
       </div>
     </div>
   </header>
@@ -519,7 +519,7 @@ else  { ?>
           ?>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Če želite objavljati in dostopati do določenih tem na forumu, se prijavite.</h2>
-        <a href="login.php" class="btn btn-primary js-scroll-trigger">Prijava</a>
+        <a href="login.php" class="btn btn-dark js-scroll-trigger">Prijava</a>
       </div>
     </div>
   </header>

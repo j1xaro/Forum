@@ -63,7 +63,7 @@ if (isset($_SESSION['id']))
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <h1>Dodaj temo</h1>
+        <h1>Dodaj objavo</h1>
 <form action="objava_insert.php" method="post">
 <?php $query = "SELECT * FROM podteme";
         $stmt = $pdo->prepare($query);

@@ -93,7 +93,7 @@ else
                 
                 
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Prijava</button>
+              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Prijava</button>
               <hr class="my-4">
               <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
