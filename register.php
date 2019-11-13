@@ -70,6 +70,42 @@ if(isset($_GET['x']))
 
   <!-- Header -->
   <header class="masthead">
+    <br><br><br><br><br><br>
+        <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><strong>Prijava</strong></h5>
+            <form class="form-signin" action="login_check.php" method="post">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email naslov" required autofocus>
+                <label for="inputEmail">Email naslov</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Geslo" required>
+                <label for="inputPassword">Geslo</label>
+              </div>
+
+              <div class="custom-control text-center  mb-3">
+
+              <a href="register.php">Nov uporabnik? Registrirajte se.</a>
+                
+                
+              </div>
+              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Prijava</button>
+              <hr class="my-4">
+              <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
+              <br>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">

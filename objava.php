@@ -8,12 +8,12 @@ session_start();
     $query1 = "SELECT * FROM objave where id=".$objava;
     $stmt1 = $pdo->prepare($query1);
     $stmt1->execute();
-    $row1 = $stmt1->fetch();
+  
 
-    $query2 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
+   /* $query2 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
     $stmt2 = $pdo->prepare($query2);
     $stmt2->execute();
-    $row2 = $stmt2->fetch();
+    $row2 = $stmt2->fetch();*/
 if (isset($_SESSION['id'])){
     
 
@@ -78,17 +78,69 @@ if (isset($_SESSION['id'])){
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <a href="forum.php" class="btn btn-primary js-scroll-trigger">Nazaj</a>
+        
         
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
-        
-        <?php 
-          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
-        
-        echo '<a href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani?\');")><strong>Delete</strong></a><br>';
-        echo "<a href='objava_edit.php?obj=".$objava."'><strong>Edit</strong></a>";
-        ?>
+        <table class='table table-dark w-auto'>
+  <thead>
+    <tr>
+      <th scope='col'>#</th>
+      <th scope='col'>Naslov</th>
+      <th scope='col'>Tema</th>
+      <th scope='col'>Podtema</th>
+      <th scope='col'>&nbsp;&nbsp;&nbsp;Objavljeno&nbsp;&nbsp;&nbsp;</th>
+      <th scope='col'>Objavil</th>
+    </tr>
+  </thead>
+  <tbody>
+      <?php 
+      $number=1;
+      while($row1 = $stmt1->fetch())
+{
+  
+  $query2 = "SELECT * FROM podteme where id=".$row1['id_podteme'];
+    $stmt2 = $pdo->prepare($query2);
+    $stmt2->execute();
+    $row2 = $stmt2->fetch();
+
+    $query3 = "SELECT * FROM teme where id=".$row2['id_tema'];
+    $stmt3 = $pdo->prepare($query3);
+    $stmt3->execute();
+    $row3 = $stmt3->fetch();
+
+    $query4 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
+    $stmt4 = $pdo->prepare($query4);
+    $stmt4->execute();
+    $row4 = $stmt4->fetch();
+
+      
+      echo "
+    <tr>
+      <th scope='row'>".$number."</th>
+      <td>".  $row1['naslov_objave'] . "</td>
+      <td>". $row3  ['naslov_teme'] ."</td>
+      <td>". $row2  ['naslov_podteme'] ."</td>
+      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". $row4  ['email'] ."</td>
+    </tr> 
+    <tr>
+    <td colspan='6'>". $row1 ['text']."</td>
+    </tr>
+    <tr>
+    <td colspan='2'>".'<a class="btn btn-light js-scroll-trigger" href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da hočete objavo izbrisati?\');")>Delete</a>'."</td>
+    <td colspan='3'><a class='btn btn-light js-scroll-trigger' href='objava_edit.php?obj=".$objava."'>Edit</a></td>
+    <td colspan='2'><a class='btn btn-light js-scroll-trigger' href='forum.php'>Nazaj</a></td>
+    </tr>
+    ";
+  
+$number++;
+}
+echo "
+</tbody>
+</table> ";
+?>  
+ 
         
         </h2>
         
@@ -200,11 +252,64 @@ if (isset($_SESSION['id'])){
       </h2>
       <h2 class="text-white-50 mx-auto mt-2 mb-5">
       
+      <table class='table table-dark w-auto'>
+  <thead>
+    <tr>
+      <th scope='col'>#</th>
+      <th scope='col'>Naslov</th>
+      <th scope='col'>Tema</th>
+      <th scope='col'>Podtema</th>
+      <th scope='col'>&nbsp;&nbsp;&nbsp;Objavljeno&nbsp;&nbsp;&nbsp;</th>
+      <th scope='col'>Objavil</th>
+    </tr>
+  </thead>
+  <tbody>
       <?php 
-        echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
-        echo '<a href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani?\');")><strong>Delete</strong></a><br>';
-        echo "<a href='objava_edit.php?obj=".$objava."'><strong>Edit</strong></a>";
-     ?>
+      $number=1;
+      while($row1 = $stmt1->fetch())
+{
+  
+  $query2 = "SELECT * FROM podteme where id=".$row1['id_podteme'];
+    $stmt2 = $pdo->prepare($query2);
+    $stmt2->execute();
+    $row2 = $stmt2->fetch();
+
+    $query3 = "SELECT * FROM teme where id=".$row2['id_tema'];
+    $stmt3 = $pdo->prepare($query3);
+    $stmt3->execute();
+    $row3 = $stmt3->fetch();
+
+    $query4 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
+    $stmt4 = $pdo->prepare($query4);
+    $stmt4->execute();
+    $row4 = $stmt4->fetch();
+
+      
+      echo "
+    <tr>
+      <th scope='row'>".$number."</th>
+      <td>".  $row1['naslov_objave'] . "</td>
+      <td>". $row3  ['naslov_teme'] ."</td>
+      <td>". $row2  ['naslov_podteme'] ."</td>
+      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". $row4  ['email'] ."</td>
+    </tr> 
+    <tr>
+    <td colspan='6'>". $row1 ['text']."</td>
+    </tr>
+    <tr>
+    <td colspan='2'>".'<a class="btn btn-light js-scroll-trigger" href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da hočete objavo izbrisati?\');")>Delete</a>'."</td>
+    <td colspan='3'><a class='btn btn-light js-scroll-trigger' href='objava_edit.php?obj=".$objava."'>Edit</a></td>
+    <td colspan='2'><a class='btn btn-light js-scroll-trigger' href='forum.php'>Nazaj</a></td>
+    </tr>
+    ";
+  
+$number++;
+}
+echo "
+</tbody>
+</table> ";
+?>  
       
       </h2>
       
@@ -427,9 +532,62 @@ else { ?>
         <a href="forum.php" class="btn btn-primary js-scroll-trigger">Nazaj</a>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
-        <?php 
-          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
-        ?>
+        <table class='table table-dark w-auto'>
+  <thead>
+    <tr>
+      <th scope='col'>#</th>
+      <th scope='col'>Naslov</th>
+      <th scope='col'>Tema</th>
+      <th scope='col'>Podtema</th>
+      <th scope='col'>&nbsp;&nbsp;&nbsp;Objavljeno&nbsp;&nbsp;&nbsp;</th>
+      <th scope='col'>Objavil</th>
+    </tr>
+  </thead>
+  <tbody>
+      <?php 
+      $number=1;
+      while($row1 = $stmt1->fetch())
+{
+  
+  $query2 = "SELECT * FROM podteme where id=".$row1['id_podteme'];
+    $stmt2 = $pdo->prepare($query2);
+    $stmt2->execute();
+    $row2 = $stmt2->fetch();
+
+    $query3 = "SELECT * FROM teme where id=".$row2['id_tema'];
+    $stmt3 = $pdo->prepare($query3);
+    $stmt3->execute();
+    $row3 = $stmt3->fetch();
+
+    $query4 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
+    $stmt4 = $pdo->prepare($query4);
+    $stmt4->execute();
+    $row4 = $stmt4->fetch();
+
+      
+      echo "
+    <tr>
+      <th scope='row'>".$number."</th>
+      <td>".  $row1['naslov_objave'] . "</td>
+      <td>". $row3  ['naslov_teme'] ."</td>
+      <td>". $row2  ['naslov_podteme'] ."</td>
+      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". $row4  ['email'] ."</td>
+    </tr> 
+    <tr>
+    <td colspan='6'>". $row1 ['text']."</td>
+    </tr>
+    <tr>
+    <td colspan='6'><a class='btn btn-light js-scroll-trigger' href='forum.php'>Nazaj</a></td>
+    </tr>
+    ";
+  
+$number++;
+}
+echo "
+</tbody>
+</table> ";
+?>  
         </h2>
         
       </div>
