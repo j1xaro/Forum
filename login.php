@@ -5,6 +5,19 @@ if (isset($_SESSION['id'])){
   header("Location: index.php");
 }
 else
+require_once('Facebook/autoload.php');
+
+$FBObject = new \Facebook\Facebook([
+	'app_id' => '1028209790858963',
+	'app_secret' => '8a3d0dcafbdfd832e55164bcf24e79b8',
+	'default_graph_version' => 'v4.0'
+]);
+
+$handler = $FBObject -> getRedirectLoginHelper();
+$redirectTo = "http://localhost/forum/callback.php";
+$data = ['email'];
+$fullURL = $handler->getLoginUrl($redirectTo, $data);
+
 ?>
 
 <!DOCTYPE html>
@@ -94,11 +107,13 @@ else
                 
               </div>
               <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Prijava</button>
-              <hr class="my-4">
+              
+
+            </form>
+            <hr class="my-4">
               <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
-              <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
-            </form>
+              <button onclick="window.location = '<?php echo $fullURL ?>'" class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
           </div>
         </div>
       </div>

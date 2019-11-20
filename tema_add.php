@@ -67,7 +67,7 @@ if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
     <input type="text" class="form-control mb-4" name="opis" placeholder="Vnesi opis teme" required="required" />
     <input type="submit" name="submit" value="Vnesi" />
 </form>
-<a href="admin.php" class="btn btn-primary btn-sm js-scroll-trigger">Nazaj</a>
+<a href="admin.php" class="btn btn-dark btn-sm js-scroll-trigger">Nazaj</a>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
         </h2>
