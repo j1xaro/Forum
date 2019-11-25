@@ -25,9 +25,15 @@ if(isset($_GET['x']))
   <meta name="author" content="">
 
   <title>Registracija</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -76,25 +82,45 @@ if(isset($_GET['x']))
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center"><strong>Prijava</strong></h5>
-            <form class="form-signin" action="login_check.php" method="post">
+            <h5 class="card-title text-center"><strong>Registracija</strong></h5>
+            <form class="form-signin" action="user_insert.php" method="post">
+            <div class="form-label-group">
+                <input type="text" id="inputText" name="ime" class="form-control" placeholder="Ime" required>
+                <label for="inputText">Ime</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="inputPriimek" name="priimek" class="form-control" placeholder="Priimek" required>
+                <label for="inputPriimek">Priimek</label>
+              </div>
               <div class="form-label-group">
                 <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email naslov" required autofocus>
                 <label for="inputEmail">Email naslov</label>
               </div>
+              <div class="form-label-group">
+                <input type="date" id="inputBday" name="birthday" class="form-control" placeholder="Birthday" required>
+                <label for="inputBday">Vaše rojstvo</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="inputNaslov" name="naslov" class="form-control" placeholder="Naslov" required>
+                <label for="inputNaslov">Naslov</label>
+              </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Geslo" required>
+                <input type="password" id="inputPassword" name="pass1" class="form-control" placeholder="Geslo" required>
                 <label for="inputPassword">Geslo</label>
+              </div>
+              <div class="form-label-group">
+                <input type="password" id="inputPassword1" name="pass2" class="form-control" placeholder="Geslo" required>
+                <label for="inputPassword1">Ponovite geslo</label>
               </div>
 
               <div class="custom-control text-center  mb-3">
 
-              <a href="register.php">Nov uporabnik? Registrirajte se.</a>
+              <a href="login.php">Ste že registirani? Prijavite se.</a>
                 
                 
               </div>
-              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Prijava</button>
+              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Pridruži se</button>
               <hr class="my-4">
               <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
@@ -105,31 +131,6 @@ if(isset($_GET['x']))
       </div>
     </div>
   </div>
-  <header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h2 class="mx-auto my-0 text-uppercase">
-          <?php
-          echo "Prijava";
-          
-          ?>
-        </h2>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">
-        <form action="user_insert.php" method="post">
-    <input type="text" name="ime" class="" placeholder="Vnesi ime" required="required" />
-    <input type="text" name="priimek" class="" placeholder="Vnesi priimek" required="required" />
-    <input type="email" name="email" class="" placeholder="Vnesi e-pošto" required="required" />
-    <input type="date" name="birthday" class=""  placeholder="Vnesi datum rojstva" required="required"/>
-    <input type="text" name="naslov" class="" placeholder="Vnesi naslov" required="required"/>
-    <input type="password" name="pass1" class="" placeholder="Vnesi geslo" required="required" />
-    <input type="password" name="pass2" class="" placeholder="Ponovi geslo" required="required" />
-    <input type="submit" value="Pridruži se" />
-</form>
-</h2>
-<h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
-        <a href="index.php" class="btn btn-primary js-scroll-trigger">Nazaj</a>
-      </div>
-    </div>
   </header>
 
   <!-- Contact Section -->
