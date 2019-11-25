@@ -78,7 +78,7 @@ if (isset($_SESSION['id'])){
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
-        <a href="forum.php" class="btn btn-primary js-scroll-trigger">Nazaj</a>
+        <a href="forum.php" class="btn btn-dark js-scroll-trigger">Nazaj</a>
         
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
