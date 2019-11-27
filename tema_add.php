@@ -64,7 +64,6 @@ if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
         <h1>Dodaj temo</h1>
 <form action="tema_insert.php" method="post">
     <input type="text" class="form-control mb-4" name="tema" placeholder="Vnesi temo" required="required" />
-    <input type="text" class="form-control mb-4" name="opis" placeholder="Vnesi opis teme" required="required" />
     <input type="submit" name="submit" value="Vnesi" />
 </form>
 <a href="admin.php" class="btn btn-dark btn-sm js-scroll-trigger">Nazaj</a>
