@@ -144,7 +144,34 @@ $number++;
 echo "
 </tbody>
 </table> ";
+
 ?>  
+<h1>Comments</h1>
+<?php
+$query5 = "SELECT * FROM komentarji where id_objava=".$objava;
+$stmt5 = $pdo->prepare($query5);
+$stmt5->execute();
+while($row5 = $stmt5->fetch())
+//0 should be the current post's id
+{
+?>
+<div class="comment">
+By: <?php echo $row5->id_uporabnik; //Or similar in your table ?>
+<p>
+<?php echo $row5->komentar; ?>
+</p>
+</div>
+<?php
+}
+?>
+<?php
+echo "<form action='komentar_insert.php?obj=".$objava."' method='post' enctype='multipart/form-data'> ";
+?>
+<!-- Here the shit they must fill out -->
+<textarea class="form-control mb-4" placeholder="Dodaj komentar" required="required" name="text"></textarea>
+<input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif">
+  <input type="submit" name="submit" value="Komentiraj" />
+</form>
  
         
         </h2>
