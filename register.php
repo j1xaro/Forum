@@ -122,9 +122,9 @@ if(isset($_GET['x']))
               </div>
               <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Pridruži se</button>
               <hr class="my-4">
-              <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
+              <!-- <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
-              <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button> -->
             </form>
           </div>
         </div>
