@@ -75,7 +75,7 @@ if (isset($_SESSION['id']))
 ?>
 <input type="text" class="form-control mb-4" name="naslov" placeholder="Vnesi naslov" required="required" />
 <textarea class="form-control mb-4" placeholder="Vnesi text" required="required" name="text"></textarea>
-<input type="file" name="files[]" multiple  id="img" required="required" accept=".jpeg, .jpg, .png, .gif">
+<input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif">
     <input type="submit" name="submit" value="Objavi" />
 </form>
         </h2>
