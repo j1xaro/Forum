@@ -8,6 +8,7 @@ session_start();
     $query1 = "SELECT * FROM objave where id=".$objava;
     $stmt1 = $pdo->prepare($query1);
     $stmt1->execute();
+    
   
 
    /* $query2 = "SELECT * FROM uporabniki where id=". $row1['id_uporabnik'];
@@ -190,7 +191,10 @@ echo "
 </html>
 
     <?php } 
-    else if($row1['id_uporabnik'] == $_SESSION['id']){
+
+  else if($row1['id_uporabnik'] == $_SESSION['id']){
+
+    
 ?>
 <head>
 
