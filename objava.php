@@ -126,7 +126,7 @@ if (isset($_SESSION['id'])){
       <td>".  $row1['naslov_objave'] . "</td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave'])) ."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> 
     <tr>
@@ -297,7 +297,7 @@ echo "
       <td>".  $row1['naslov_objave'] . "</td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> 
     <tr>
@@ -464,7 +464,7 @@ echo "
       <td>".  $row1['naslov_objave'] . "</td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> 
     <tr>
@@ -629,7 +629,7 @@ else { ?>
       <td>".  $row1['naslov_objave'] . "</td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> 
     <tr>

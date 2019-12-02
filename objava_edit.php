@@ -85,7 +85,7 @@ if (isset($_SESSION['id'])){
         <?php 
         echo '<form action="objava_update.php?obj='.$objava.'" method="post">';
         
-          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
+          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . date("d.m.Y H:i:s", strtotime($row1['datum_objave'])). "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
 
         ?>
         <input type="submit" class="" value="Update" />
@@ -203,7 +203,7 @@ if (isset($_SESSION['id'])){
       <?php 
         echo '<form action="objava_update.php?obj='.$objava.'" method="post">';
         
-          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
+          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . date("d.m.Y H:i:s", strtotime($row1['datum_objave'])). "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
 
         ?>
         <input type="submit" class="" value="Update" />

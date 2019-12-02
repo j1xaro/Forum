@@ -138,5 +138,6 @@ if(!$accessToken->isLongLived())
         }
         
     header('Location:index.php');
-    exit();
+	exit();
+ }
 ?>

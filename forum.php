@@ -118,7 +118,7 @@ if (isset($_SESSION['id'])){
       <td><a href='objava.php?obj=".$objava."'> ".  $row1['naslov_objave'] . "</a></td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> ";
   
@@ -310,7 +310,7 @@ while($row1 = $stmt1->fetch())
       <td><a href='objava.php?obj=".$objava."'> ".  $row1['naslov_objave'] . "</a></td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> ";
   
@@ -473,7 +473,7 @@ else { ?>
       <td><a href='objava.php?obj=".$objava."'> ".  $row1['naslov_objave'] . "</a></td>
       <td>". $row3  ['naslov_teme'] ."</td>
       <td>". $row2  ['naslov_podteme'] ."</td>
-      <td>". $row1  ['datum_objave'] ."</td>
+      <td>". date("d.m.Y", strtotime($row1['datum_objave']))."</td>
       <td>". $row4  ['email'] ."</td>
     </tr> ";
   
