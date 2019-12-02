@@ -6,12 +6,12 @@ $tema = $_POST['tema'];
 $opis = $_POST['opis'];
 
 //preverim podatke, da so obvezi vnešeni
-if (!empty($podtema) && !empty($opis) && !empty($tema)) {
+if (!empty($podtema) && !empty($tema)) {
     
-    $query = "INSERT INTO podteme (id_tema,naslov_podteme,opis) "
-            . "VALUES (?,?,?)";
+    $query = "INSERT INTO podteme (id_tema,naslov_podteme) "
+            . "VALUES (?,?)";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$tema,$podtema,$opis]);
+    $stmt->execute([$tema,$podtema]);
     
     header("Location: podtema_add.php");
 }

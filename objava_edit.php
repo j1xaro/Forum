@@ -195,16 +195,19 @@ if (isset($_SESSION['id'])){
   <div class="container d-flex h-100 align-items-center">
     <div class="mx-auto text-center">
       <h2 class="mx-auto my-0 text-uppercase">
-      <a href="forum.php" class="btn btn-primary js-scroll-trigger">Nazaj</a>
+      <a href="forum.php" class="btn btn-dark js-scroll-trigger">Nazaj</a>
       
       </h2>
       <h2 class="text-white-50 mx-auto mt-2 mb-5">
       
       <?php 
-        echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4>". $row1['text']."</h4>";
-        echo "<a href='objava_delete.php?obj=".$objava."'><strong>Delete</strong></a><br>";
-        echo "<a href='objava_edit.php?obj=".$objava."'><strong>Edit</strong></a>";
-     ?>
+        echo '<form action="objava_update.php?obj='.$objava.'" method="post">';
+        
+          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . $row1['datum_objave']. "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
+
+        ?>
+        <input type="submit" class="" value="Update" />
+        </form>
       
       </h2>
       
