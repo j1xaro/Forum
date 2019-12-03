@@ -15,12 +15,12 @@ if(!empty($objava) && !empty($text))
     $stmt = $pdo->prepare($query);
     $stmt->execute([$_SESSION['id'],$text,date("Y-m-d H:i:s"),$objava]);
     $row = $stmt->fetch();
-    header("'Location:objava.php?obj='$objava");
+    header('Location:objava.php?obj='.$objava);
 }
 
 else
 {
-header("'Location:objava.php?obj='$objava");
+    header('Location:objava.php?obj='.$objava);
 }
 }
 else

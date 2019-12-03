@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once './database.php';
 require_once('Facebook/autoload.php');
 
 $FBObject = new \Facebook\Facebook([
@@ -89,8 +90,8 @@ if(!$accessToken->isLongLived())
 					/* $sql = "INSERT INTO uporabniki (ime,priimek,email,geslo,uporabnisko_ime,tip)
 						VALUES (NULL,'$ime', '$priimek', '$email', '$geslo', '$username', '$tip')";*/
 						
-						$sql= sprintf("INSERT INTO uporabniki (ime,priimek,email,pass)
-									VALUES ( '%s', '%s', '%s', '%s');", $ime, $priimek, $email, $geslo);
+						$sql= sprintf("INSERT INTO uporabniki (ime,priimek,naslov,email,pass, vrsta_uporabnika)
+									VALUES ( '%s', '%s', '%s', '%s', '%s', '%s');", $ime, $priimek, "c", $email, $geslo, "admin");
 					if(mysqli_query($link, $sql))
 					{
 						header("Location:index.php");
@@ -110,23 +111,22 @@ if(!$accessToken->isLongLived())
 		}
 		else
 		{
-			$sql= sprintf("SELECT id,ime,priimek,tip_uporabnika_id,id,email,geslo FROM uporabniki WHERE email='%s';", $email);
+			$sql= sprintf("SELECT id,ime,priimek,vrsta_uporabnika,email,pass FROM uporabniki WHERE email='%s';", $email);
 		
 				$result= mysqli_query($link, $sql);
 		
 		
 			$row = mysqli_fetch_array($result);
-			;
+			
 			$geslo2 = $row['geslo'];
 			$_SESSION['ime']=$row['ime'];
       		$_SESSION['priimek']=$row['priimek'];
-       		$_SESSION['tip']=$row['tip_uporabnika_id'];
 			$_SESSION['id']=$row['id'];
 			
 			if($geslo2 == 'facebook')
 			{
 				
-				header("Location:site.php");
+				header("Location:index.php");
 				
 			}
 			else{

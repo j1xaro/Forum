@@ -39,12 +39,13 @@ if (isset($_SESSION['id'])){
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
 
@@ -146,29 +147,100 @@ echo "
 </table> ";
 
 ?>  
-<h1>Comments</h1>
+</div>
+</div>
+
+
 <?php
+
+?>
+
+
+
+      <?php 
+
 $query5 = "SELECT * FROM komentarji where id_objava=".$objava;
 $stmt5 = $pdo->prepare($query5);
 $stmt5->execute();
+$number1=1;
 while($row5 = $stmt5->fetch())
 //0 should be the current post's id
 {
+  $query6 = "SELECT * FROM uporabniki where id=".$row5['id_uporabnik'];
+  $stmt6 = $pdo->prepare($query6);
+  $stmt6->execute();
+  $row6 = $stmt6->fetch();
+  {
 ?>
-<div class="comment">
-By: <?php echo $row5->id_uporabnik; //Or similar in your table ?>
-<p>
-<?php echo $row5->komentar; ?>
-</p>
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h2 class="mx-auto my-0 text-uppercase">
+        <table class='table table-dark w-auto'>
+  <thead>
+    <tr>
+      <th scope='col'>Št.Komentarja:</th>
+      <th scope='col'>&nbsp;&nbsp;&nbsp;Komentirano:&nbsp;&nbsp;&nbsp;</th>
+      <th scope='col'>Komentiral:</th>
+    </tr>
+  </thead>
+  <tbody>
+        <?php
+  
+ 
+
+      
+      echo "
+    <tr>
+      <th scope='row'>".$number1."</th>
+      <td>". date("d.m.Y", strtotime($row5['datum_komentarja'])) ."</td>
+      <td>". $row6  ['email'] ."</td>
+      
+    </tr> 
+    <tr>
+    <td colspan='6'>". $row5 ['komentar']."</td>
+    </tr>
+    <tr>
+    <td colspan='2'>".'<a class="btn btn-light js-scroll-trigger" href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da hočete objavo izbrisati?\');")>Delete</a>'."</td>
+    <td colspan='3'><a class='btn btn-light js-scroll-trigger' href='objava_edit.php?obj=".$objava."'>Edit</a></td>
+    <td colspan='2'><a class='btn btn-light js-scroll-trigger' href='forum.php'>Nazaj</a></td>
+    </tr>
+    ";
+  
+$number1++;
+}
+echo "
+</tbody>
+</table> ";
+
+?> 
 </div>
+    </div>
+
+
+
 <?php
 }
 ?>
+
+
+
+
+
 <?php
 echo "<form action='komentar_insert.php?obj=".$objava."' method='post' enctype='multipart/form-data'> ";
 ?>
 <!-- Here the shit they must fill out -->
-<textarea class="form-control mb-4" placeholder="Dodaj komentar" required="required" name="text"></textarea>
+<textarea name="text" id="editor">
+        
+    </textarea>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 <input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif">
   <input type="submit" name="submit" value="Komentiraj" />
 </form>

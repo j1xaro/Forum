@@ -24,7 +24,7 @@ if (isset($_SESSION['id']))
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
 
@@ -74,8 +74,17 @@ if (isset($_SESSION['id']))
     }
 ?>
 <input type="text" class="form-control mb-4" name="naslov" placeholder="Vnesi naslov" required="required" />
-<textarea class="form-control mb-4" placeholder="Vnesi text" required="required" name="text"></textarea>
-<input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif">
+<textarea name="text" id="editor">
+        
+    </textarea>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+<!-- <input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif"> -->
     <input type="submit" name="submit" value="Objavi" />
 </form>
         </h2>
