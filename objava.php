@@ -188,7 +188,7 @@ while($row5 = $stmt5->fetch())
         <?php
   
  
-
+$komentar = $row5['id'];
       
       echo "
     <tr>
@@ -201,9 +201,7 @@ while($row5 = $stmt5->fetch())
     <td colspan='6'>". $row5 ['komentar']."</td>
     </tr>
     <tr>
-    <td colspan='2'>".'<a class="btn btn-light js-scroll-trigger" href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da hočete objavo izbrisati?\');")>Delete</a>'."</td>
-    <td colspan='3'><a class='btn btn-light js-scroll-trigger' href='objava_edit.php?obj=".$objava."'>Edit</a></td>
-    <td colspan='2'><a class='btn btn-light js-scroll-trigger' href='forum.php'>Nazaj</a></td>
+    <td colspan='3'>".'<a class="btn btn-light js-scroll-trigger" href="komentar_delete.php?kom='.$komentar.'&obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da želite izbrisati komentar?\');")>Delete</a>'."</td>
     </tr>
     ";
   

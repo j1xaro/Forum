@@ -39,6 +39,7 @@ if (isset($_SESSION['id'])){
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
@@ -81,12 +82,22 @@ if (isset($_SESSION['id'])){
         <a href="forum.php" class="btn btn-dark js-scroll-trigger">Nazaj</a>
         
         </h2>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">
+        <h2 class="text-dark-50 mx-auto mt-2 mb-5">
         <?php 
         echo '<form action="objava_update.php?obj='.$objava.'" method="post">';
         
-          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . date("d.m.Y H:i:s", strtotime($row1['datum_objave'])). "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. "</h5><label><b>Text:</b></label><h4><textarea name='text' required='required'>".$row1['text']."</textarea></h4>";
-
+          echo "<label><b>Naslov:</b></label><h3>".  $row1['naslov_objave'] . "</h3></a><label><b>Objavljeno:</b></label><h5> " . date("d.m.Y H:i:s", strtotime($row1['datum_objave'])). "</h5><label><b>Objavil:</b></label><h5>". $row2['email']. 
+          "</h5><label><b>Text:</b></label><h4><textarea name='text' id='editor'>
+          ".$row1['text']."
+            </textarea>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script></h4>";
+          
         ?>
         <input type="submit" class="" value="Update" />
         </form>
