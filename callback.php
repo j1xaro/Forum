@@ -47,6 +47,7 @@ if(!$accessToken->isLongLived())
 		if($a==1)
 		{
 			$ime = $result;
+			echo $ime;
 		}
 		else if ($a==2)
 		{
@@ -72,57 +73,58 @@ if(!$accessToken->isLongLived())
 
 		$tip = 1;
 		$geslo = "facebook";
-		$username=$ime.$priimek;
 		
+		
+		$query = " SELECT email FROM uporabniki WHERE email=?";
+		$stmt = $pdo->prepare($query);
+		$stmt->execute([$email]);
 			
-			$sql= sprintf("SELECT email FROM uporabniki WHERE email='%s';", $email);
-		
-				$result= mysqli_query($link, $sql);
-		
-		
-			$row = mysqli_fetch_array($result);
 			
 		
-			if($row == NULL)
+			if($stmt->rowCount()==0)
 			{
-					
+					echo "tobe";
 			
 					/* $sql = "INSERT INTO uporabniki (ime,priimek,email,geslo,uporabnisko_ime,tip)
 						VALUES (NULL,'$ime', '$priimek', '$email', '$geslo', '$username', '$tip')";*/
 						
-						$sql= sprintf("INSERT INTO uporabniki (ime,priimek,naslov,email,pass, vrsta_uporabnika)
-									VALUES ( '%s', '%s', '%s', '%s', '%s', '%s');", $ime, $priimek, "c", $email, $geslo, "admin");
-					if(mysqli_query($link, $sql))
+						$query = "INSERT INTO uporabniki (ime, priimek, naslov, email, pass, vrsta_uporabnika) "
+						. "VALUES (?,?,?,?,?,?)";
+						$stmt = $pdo->prepare($query);
+						$stmt->execute([$ime, $priimek, "facebook", $email, $geslo, ""]);
+						//$sql= sprintf("INSERT INTO uporabniki (ime,priimek,naslov,email,pass, vrsta_uporabnika)
+									//VALUES ( '%s', '%s', '%s', '%s', '%s', '%s');", $ime, $priimek, "c", $email, $geslo, "admin");
+									if($row = $stmt->fetch())
 					{
-						header("Location:index.php");
-						//echo "Registracija uspela";
+						//header("Location:index.php");
+						echo "Registracija uspela";
 						
 					}
+					
 					else 
 						{
-						echo ("<script LANGUAGE='JavaScript'>
-						window.alert('Registacija ni uspela poskusite pozneje');
-						window.location.href='login.php';
-						</script>");   
-						//echo "Registracija ni uspešna";
+						
+						echo "Registracija ni uspešna";
 					}
 				
-			
+		
 		}
-		else
-		{
-			$sql= sprintf("SELECT id,ime,priimek,vrsta_uporabnika,email,pass FROM uporabniki WHERE email='%s';", $email);
+		
+			/*$sql= sprintf("SELECT id,ime,priimek,vrsta_uporabnika,email,pass FROM uporabniki WHERE email='%s';", $email);
 		
 				$result= mysqli_query($link, $sql);
 		
 		
-			$row = mysqli_fetch_array($result);
+			$row = mysqli_fetch_array($result);*/
 			
-			$geslo2 = $row['geslo'];
-			$_SESSION['ime']=$row['ime'];
-      		$_SESSION['priimek']=$row['priimek'];
-			$_SESSION['id']=$row['id'];
-			
+		$query = " SELECT * FROM uporabniki WHERE email=?";
+		$stmt = $pdo->prepare($query);
+		$stmt->execute([$email]);
+		$row = $stmt->fetch();
+			$geslo2 = $row['pass'];
+			$_SESSION['id']=$row['id'];        
+            $_SESSION['admin'] = $row['vrsta_uporabnika'];
+			$geslo2 == 'facebook';
 			if($geslo2 == 'facebook')
 			{
 				
@@ -130,12 +132,9 @@ if(!$accessToken->isLongLived())
 				
 			}
 			else{
-				echo ("<script LANGUAGE='JavaScript'>
-				window.alert('Napaka pri prijavi');
-				window.location.href='login.php';
-				</script>");   
+				  
 			}
-        }
+        
         
     header('Location:index.php');
 	exit();
