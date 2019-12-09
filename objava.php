@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+
 session_start();
     require_once "database.php";  
     $objava = $_GET['obj'];
@@ -172,8 +173,8 @@ while($row5 = $stmt5->fetch())
   $row6 = $stmt6->fetch();
   {
 ?>
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
+
+    
       <div class="mx-auto text-center">
         <h2 class="mx-auto my-0 text-uppercase">
         <table class='table table-dark w-auto'>

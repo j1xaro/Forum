@@ -64,6 +64,7 @@ if (isset($_SESSION['id']) && $_SESSION['admin'] == "admin"){
         <a href="tema_add.php" class="btn btn-dark js-scroll-trigger">Dodaj temo</a><br><br>
         <a href="podtema_add.php" class="btn btn-dark js-scroll-trigger">Dodaj podtemo</a><br><br>
         <a href="uporabniki.php" class="btn btn-dark js-scroll-trigger">Vsi uporabniki</a>
+        <a href="nastavitve.php" class="btn btn-dark js-scroll-trigger">Nastavitve</a>
         </h2>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">
         </h2>
