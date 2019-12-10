@@ -111,7 +111,7 @@ $fullURL = $handler->getLoginUrl($redirectTo, $data);
 
             </form>
             <hr class="my-4">
-              <button onclick="window.location=googletest.php" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
+              <button onclick="window.location='redirect.php'" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
               <br>
               <button onclick="window.location = '<?php echo $fullURL ?>'" class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
           </div>
