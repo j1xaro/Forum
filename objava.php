@@ -49,11 +49,17 @@ if (isset($_SESSION['id'])){
   <script src="https://cdn.ckeditor.com/ckeditor5/10.0.1/classic/ckeditor.js"></script>
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  
 
 </head>
 
 <body id="page-top">
-
+<div id='myModal' class='modal'>
+    <span class='close'>&times;</span>
+    <img class='modal-content' id='img01'>
+    <div id='caption'></div>
+  </div>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -141,10 +147,11 @@ if (isset($_SESSION['id'])){
     while ($rowz = $stmtz->fetch()) {
     
       $url=$rowz['url'];
-
+      //<img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
+      
    echo "
     <tr>
-    <td colspan='6'><img class='' style='width: 100; height: 200px;' src='uploads/".$url."'></td>
+    <td colspan='6'><img id='myImg' alt='slikica'style='width: 100; height: 200px;' src='uploads/".$url."'></td>
     </tr>
     ";
     }
@@ -302,6 +309,28 @@ echo "<form action='komentar_insert.php?obj=".$objava."' method='post' enctype='
 
   <!-- Custom scripts for this template -->
   <script src="js/grayscale.min.js"></script>
+  <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
 
 </body>
 
