@@ -84,7 +84,7 @@ if (isset($_SESSION['id']))
                 console.error( error );
             } );
     </script>
-<!-- <input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif"> -->
+<input type="file" name="files[]" multiple  id="img"  accept=".jpeg, .jpg, .png, .gif"> 
     <input type="submit" name="submit" value="Objavi" />
 </form>
         </h2>

@@ -120,7 +120,10 @@ if (isset($_SESSION['id'])){
     $stmt4 = $pdo->prepare($query4);
     $stmt4->execute();
     $row4 = $stmt4->fetch();
-
+    $queryz = "SELECT * FROM slike where id_objava=". $row1['id'];
+    $stmtz = $pdo->prepare($queryz);
+    $stmtz->execute();
+    
       
       echo "
     <tr>
@@ -133,7 +136,19 @@ if (isset($_SESSION['id'])){
     </tr> 
     <tr>
     <td colspan='6'>". $row1 ['text']."</td>
+    </tr>";
+    
+    while ($rowz = $stmtz->fetch()) {
+    
+      $url=$rowz['url'];
+
+   echo "
+    <tr>
+    <td colspan='6'><img class='' style='width: 100; height: 200px;' src='uploads/".$url."'></td>
     </tr>
+    ";
+    }
+    echo "
     <tr>
     <td colspan='2'>".'<a class="btn btn-light js-scroll-trigger" href="objava_delete.php?obj='.$objava.'" onclick="return confirm(\'Ste prepričani, da hočete objavo izbrisati?\');")>Delete</a>'."</td>
     <td colspan='3'><a class='btn btn-light js-scroll-trigger' href='objava_edit.php?obj=".$objava."'>Edit</a></td>
