@@ -1,5 +1,31 @@
 <?php
 session_start();
+require_once 'C:\xampp\htdocs\forum\google-api-php-client-2.4.0\vendor\autoload.php';
+ 
+// init configuration
+$clientID = '679032168820-fdjhol0gfud47a55uvq0mjjsbt2idnf6.apps.googleusercontent.com';
+$clientSecret = 'YWMS77YS1gXWNz8wcheaHylP';
+$redirectUri = 'http://localhost/forum/index.php';
+  
+// create Client Request to access Google API
+$client = new Google_Client();
+$client->setClientId($clientID);
+$client->setClientSecret($clientSecret);
+$client->setRedirectUri($redirectUri);
+$client->addScope("email");
+$client->addScope("profile");
+ 
+// authenticate code from Google OAuth Flow
+if (isset($_GET['code'])) {
+  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+  $client->setAccessToken($token['access_token']);
+  
+  // get profile info
+  $google_oauth = new Google_Service_Oauth2($client);
+  $google_account_info = $google_oauth->userinfo->get();
+  $email =  $google_account_info->email;
+  $name =  $google_account_info->name;
+}
     require_once "database.php";
 if (isset($_SESSION['id'])){
   header("Location: index.php");
@@ -111,7 +137,8 @@ $fullURL = $handler->getLoginUrl($redirectTo, $data);
 
             </form>
             <hr class="my-4">
-              <button onclick="window.location='redirect.php'" class="btn btn-lg btn-google btn-block text-uppercase" ><i class="fab fa-google mr-2"></i>Prijava z Google</button>
+            <?php echo '<button class="btn btn-lg btn-google btn-block text-uppercase" onclick=location.href="'. htmlspecialchars($client->createAuthUrl()) .'"><i class="fab fa-google mr-2"></i>Prijava z Google</button>';?>
+              
               <br>
               <button onclick="window.location = '<?php echo $fullURL ?>'" class="btn btn-lg btn-facebook btn-block text-uppercase"><i class="fab fa-facebook-f mr-2"></i>Prijava s Facebook</button>
           </div>

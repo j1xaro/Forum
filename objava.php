@@ -54,12 +54,8 @@ if (isset($_SESSION['id'])){
 
 </head>
 
-<body id="page-top">
-<div id='myModal' class='modal'>
-    <span class='close'>&times;</span>
-    <img class='modal-content' id='img01'>
-    <div id='caption'></div>
-  </div>
+<body id="page-top" >
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -86,7 +82,11 @@ if (isset($_SESSION['id'])){
       </div>
     </div>
   </nav>
- 
+  <div id="myModal" class="modal" >
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
@@ -329,6 +329,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
+  console.log("not");
 }
 </script>
 

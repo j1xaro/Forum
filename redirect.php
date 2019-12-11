@@ -26,7 +26,35 @@ if (isset($_GET['code'])) {
   $name =  $google_account_info->name;
  
   // now you can use this profile info to create account in your website and make user logged in.
-} else {
-  echo "<a href='".$client->createAuthUrl()."'>Google Login</a>";
-}
+
+  $string = trim(preg_replace('/\s+/', ' ', $name));
+
+		$result =  explode(" ", $name);
+
+		//print_r( $result );
+		$ime = $result[0];
+    $priimek = $result[1];
+    $geslo = "google";
+
+		
+} 
+
+
+$query = "SELECT email FROM uporabniki WHERE email=?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$email]);
+    if($stmt->rowCount()==0)
+    {
+      $query1 = "INSERT INTO uporabniki WHERE (ime, priimek, email, pass) VALUES (?,?,?,?)";
+      $stmt1 = $pdo->prepare($query1);
+      $stmt1->execute([$ime, $priimek, $email, $geslo]);
+    }
+    else {
+      echo ("<script LANGUAGE='JavaScript'>
+							window.alert('Registacija ni uspela poskusite pozneje');
+							window.location.href='login.php';
+							</script>");   
+    }
+
+
 ?>
