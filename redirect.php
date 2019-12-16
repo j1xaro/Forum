@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once './database.php';
 require_once 'C:\xampp\htdocs\forum\google-api-php-client-2.4.0\vendor\autoload.php';
  
 // init configuration
@@ -45,9 +47,10 @@ $query = "SELECT email FROM uporabniki WHERE email=?";
     $stmt->execute([$email]);
     if($stmt->rowCount()==0)
     {
-      $query1 = "INSERT INTO uporabniki WHERE (ime, priimek, email, pass) VALUES (?,?,?,?)";
+      $query1 = "INSERT INTO uporabniki (ime, priimek, naslov, email, pass, vrsta_uporabnika) "
+      . "VALUES (?,?,?,?,?,?)";
       $stmt1 = $pdo->prepare($query1);
-      $stmt1->execute([$ime, $priimek, $email, $geslo]);
+      $stmt1->execute([$ime, $priimek, "gmail", $email, $geslo, ""]);
     }
     else {
       echo ("<script LANGUAGE='JavaScript'>
